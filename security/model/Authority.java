@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-
-
 @Entity
 @Table(name = "AUTHORITY", uniqueConstraints = {@UniqueConstraint(columnNames = {"NAME"})})
 public class Authority implements GrantedAuthority {
@@ -26,14 +24,6 @@ public class Authority implements GrantedAuthority {
     @Column(name = "NAME")
     private String name;
     
-    
-    @Override
-    public String getAuthority() {
-        return getName();
-    }
-
-
-
 	public Long getId() {
 		return id;
 	}
@@ -42,15 +32,16 @@ public class Authority implements GrantedAuthority {
 		this.id = id;
 	}
 
-
-
 	public String getName() {
 		return name;
 	}
-
-
-
+	
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	@Override
+    public String getAuthority() {
+        return getName();
+    }
 }

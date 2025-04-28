@@ -58,10 +58,17 @@ public abstract class BaseRepository<T> {
 	}
 
 	@SuppressWarnings("deprecation")
-	public void delete(Integer id) {
-		Session session = this.sf.getCurrentSession();
-		T hl = (T) session.byId(entityClass).load(id);
-		session.delete(hl);
+	public Boolean delete(Integer id) {
+		try {
+			Session session = this.sf.getCurrentSession();
+			T hl = (T) session.byId(entityClass).load(id);
+			session.beginTransaction();	
+			session.delete(hl);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			return false;
+		}		
+		return true;
 	}
 	
 	public SessionFactory getSf() {

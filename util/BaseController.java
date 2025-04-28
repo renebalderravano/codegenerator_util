@@ -59,8 +59,9 @@ public abstract class BaseController<T> {
 
 	@CrossOrigin
 	@GetMapping(path = "/delete/{id}")
-	public void delete(Integer id) {
+	public Boolean delete(@PathVariable("id") Integer id) {
 
+		return (Boolean) callMethod(getService(), "delete", new Object[] {id}, id.getClass());
 	}
 
 	private Object callMethod(Object obj, String methodName, Object[] values, Class<?>... classes) {

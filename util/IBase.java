@@ -9,5 +9,5 @@ public interface IBase<T> {
 	public void update(T housingLocation);
 	public List<T> findAll();
 	public T findById(Integer id);
-	public void delete(Integer id);
+	public Boolean delete(Integer id);
 }

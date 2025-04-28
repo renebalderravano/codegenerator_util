@@ -45,8 +45,9 @@ public abstract class BaseService<T> {
 		return (T) callMethod(getRepository(), "findById", new Object[] {id}, id.getClass());
 	}
 
-	public void delete(Integer id) {
+	public Boolean delete(Integer id) {
 
+		return (Boolean) callMethod(getRepository(), "delete", new Object[] {id}, id.getClass());
 	}
 	
 	
