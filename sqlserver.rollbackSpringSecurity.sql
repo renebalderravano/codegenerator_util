@@ -1,4 +1,4 @@
-USE [crm]
+USE [crm4]
 GO
 
 /****** Object:  Table [dbo].[USERS_AUTHORITIES]    Script Date: 17/04/2025 02:01:14 p. m. ******/
